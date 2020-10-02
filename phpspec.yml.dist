@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Srkits\SyliusRazorPayPlugin
+        psr4_prefix: Srkits\SyliusRazorPayPlugin

@@ -1,5 +1,6 @@
 {
     "name": "srkits/sylius-razor-pay-plugin",
+    "minimum-stability": "dev",
     "type": "sylius-plugin",
     "keywords": ["sylius", "sylius-plugin"],
     "description": "Razor Pay Payment integration in Sylius Project",

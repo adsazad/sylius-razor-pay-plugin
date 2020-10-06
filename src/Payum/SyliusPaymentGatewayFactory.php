@@ -14,12 +14,12 @@ final class SyliusPaymentGatewayFactory extends GatewayFactory
     {
         $config->defaults([
             'payum.factory_name' => 'sylius_payment',
-            'payum.factory_title' => 'Sylius Payment',
+            'payum.factory_title' => 'Razor Pay',
             'payum.action.status' => new StatusAction(),
         ]);
 
         $config['payum.api'] = function (ArrayObject $config) {
-            return new SyliusApi($config['api_key']);
+            return new SyliusApi($config['api_key'], $config['api_secret']);
         };
     }
 }

@@ -39,6 +39,7 @@ final class CaptureAction implements ActionInterface, ApiAwareInterface
                     'price' => $payment->getAmount(),
                     'currency' => $payment->getCurrencyCode(),
                     'api_key' => $this->api->getApiKey(),
+                    'api_secret' => $this->api->getApiSecret(),
                 ]),
             ]);
         } catch (RequestException $exception) {

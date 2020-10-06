@@ -33,7 +33,7 @@ final class CaptureAction implements ActionInterface, ApiAwareInterface
         /** @var SyliusPaymentInterface $payment */
         $payment = $request->getModel();
 
-        try {
+       /* try {
             $response = $this->client->request('POST', 'https://sylius-payment.free.beeceptor.com', [
                 'body' => json_encode([
                     'price' => $payment->getAmount(),
@@ -46,7 +46,32 @@ final class CaptureAction implements ActionInterface, ApiAwareInterface
             $response = $exception->getResponse();
         } finally {
             $payment->setDetails(['status' => $response->getStatusCode()]);
-        }
+        }*/
+        $form = <<<HTML
+<form id="form" action="$action" method="POST">
+<input type="hidden" id="razorpay_payment_id" name="razorpay_payment_id" value="">
+</form>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+	var options = $options;
+	
+	options.handler = function(response) {
+		document.getElementById('razorpay_payment_id').value = response.razorpay_payment_id;
+		document.getElementById('form').submit();
+	}
+	
+	options.modal = {
+		ondismiss: function() {
+			document.getElementById('razorpay_payment_id').value = 'null';	
+			document.getElementById('form').submit();
+		}
+	}
+	
+	var rzp = new Razorpay(options);
+	rzp.open();
+</script>
+HTML;
+		throw new HttpResponse($form);
     }
 
     public function supports($request): bool

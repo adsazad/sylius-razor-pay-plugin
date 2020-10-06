@@ -20,19 +20,19 @@ final class RazorpayGatewayConfigurationType extends AbstractType
     {
         $builder
             ->add('api_key', TextType::class, [
-                'label' => 'srkits.razor_pay_plugin.api_key',
+                'label' => 'API Key',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'srkits.razor_pay_plugin.gateway_configuration.api_key.not_blank',
+                        'message' => 'Enter API key',
                         'groups' => ['sylius'],
                     ])
                 ],
             ])
             ->add('api_secret', TextType::class, [
-                'label' => 'srkits.razor_pay_plugin.api_secret',
+                'label' => 'API Secret',
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'srkits.razor_pay_plugin.gateway_configuration.api_secret.not_blank',
+                        'message' => 'Enter API Secret',
                         'groups' => ['sylius'],
                     ])
                 ],

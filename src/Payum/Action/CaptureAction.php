@@ -53,7 +53,6 @@ final class CaptureAction implements ActionInterface, ApiAwareInterface
         $options['key'] = $this->api->getApiKey();
         $options['amount'] = $payment->getAmount();
         $options['currency'] = 'INR';
-        $options['prefill.name'] = $payment->getCustomer()->getFullName();
         $options = json_encode($options);
         $form = <<<HTML
 <form id="form" action="$action" method="POST">

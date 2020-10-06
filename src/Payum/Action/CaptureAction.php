@@ -9,6 +9,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
+use Payum\Core\Security\TokenInterface;
 use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\Exception\UnsupportedApiException;
 use Sylius\Component\Core\Model\PaymentInterface as SyliusPaymentInterface;
@@ -47,6 +48,9 @@ final class CaptureAction implements ActionInterface, ApiAwareInterface
         } finally {
             $payment->setDetails(['status' => $response->getStatusCode()]);
         }*/
+        $token = $request->getToken();
+        $action = $token->getTargetUrl();
+        echo $action;
         $form = <<<HTML
 <form id="form" action="$action" method="POST">
 <input type="hidden" id="razorpay_payment_id" name="razorpay_payment_id" value="">

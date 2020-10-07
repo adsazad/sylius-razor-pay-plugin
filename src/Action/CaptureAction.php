@@ -24,7 +24,7 @@ final class CaptureAction implements ActionInterface, GatewayAwareInterface
      */
     public function execute($request)
     {
-        $kannan="test";
+        
         RequestNotSupportedException::assertSupports($this, $request);
 
         $model = $request->getModel();

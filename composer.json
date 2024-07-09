@@ -1,5 +1,5 @@
 {
-    "name": "srkits/sylius-razor-pay-plugin",
+    "name": "adsazad/sylius-razor-pay-plugin",
     "minimum-stability": "dev",
     "type": "sylius-plugin",
     "keywords": ["sylius", "sylius-plugin"],

@@ -16,7 +16,7 @@ We work on amazing eCommerce projects on top of Sylius. Need some help or additi
 
 ## Installation
 
-Run `composer require srkits/sylius-razor-pay-plugin`.
+Run `composer require adsazad/sylius-razor-pay-plugin`.
 
 ## Testing
 
